@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myFirstApp">
+<head>
+	<meta charset="utf-8">
+	<title>First Angular App</title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<!-- <script src="app2.js"></script> -->
+</head>
+<body>
+	<div ng-controller="myFirstController">
+		I can add: {{a}} + {{b}} = {{a+b}}
+	</div>
+	<div ng-controller="secondController">
+		I can show names in order: <ul>
+				<li ng-repeat="i in name">{{i}}</li>
+		</ul>
+	</div>
+	<div ng-controller="ctrl3">
+		And I can show you <h1>{{bass}}</h1>
+	</div>
+</body>
+</html>
