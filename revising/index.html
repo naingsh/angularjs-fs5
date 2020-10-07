@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Just Revising</title>
+<script src="angular.min.js"></script>
+<script src="angular.min.js.map"></script>
+<script src="app.js"></script>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+h1{
+  text-align:center;
+}
+.box1{
+  font-size:20px;
+  border:1px solid black;
+  padding:1%;
+  display:block;
+  width:35%;
+  margin:10px auto auto auto;
+  border-radius:10px;
+  text-align:center;
+}
+.box1 > #output{
+  display:block;
+width:100%;
+}
+footer{
+  margin-top:35%;
+}
+footer > div{
+  margin:10px;
+}
+</style>
+</head>
+<body>
+  <h1>Hachama chama</h1>
+  <div ng-app="app1" ng-controller="app1ctrl" id="app1" class="box1">
+    Your name : <input autocomplete="off" id="name"><br>
+    <!-- Total numeric value of the name {{name}} is {{number}} -->
+    <div id="output"></div>
+  </div>
+  <footer>
+    <hr>
+    <div style="text-align:center">*Under Maintenance*</div>
+  </footer>
+</body>
+</html>
