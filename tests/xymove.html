@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>X-Y</title>
+    <script src="../angular.min.js"></script>
+    <script src='xymove.js'></script>
+    <style>
+      #car{
+        border:1px solid black;
+        display:block;
+        width:10px;
+        padding:10px;
+        background-color:red;
+      }
+    </style>
+  </head>
+<body ng-app="xy">
+  <div ng-controller="xyCtrl">
+<input type="text" ng-keyup="checkKey();" ng-model="key">
+</div>
+<div id="car">
+</div>
+</body>
+</html>
