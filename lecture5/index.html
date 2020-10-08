@@ -6,8 +6,19 @@
     <script src="../angularSrcFol/angular.min.js"></script>
     <script src="../angularSrcFol/angular.min.js.map"></script>
     <script src="app.js"></script>
+    <style>
+    div{
+      font-size:20px;
+    }
+    </style>
   </head>
   <body>
-<h1>Megumin</h1>
+<h1>Top of the morning to you peasant</h1>
+  <div ng-app="textApp" ng-controller="textCtrl">
+    Search <input type="text" ng-model="type"><br>
+    What you are searching : {{type}}
+    <br>
+    My waifu is {{name()}}
+  </div>
   </body>
 </html>
