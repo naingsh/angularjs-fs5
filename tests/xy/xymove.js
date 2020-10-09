@@ -6,6 +6,7 @@ var count={
   south:0,
   east:0
 };
+move.$inject = ['$scope'];
 function move($scope){
   $scope.key="";
   $scope.checkKey=function(){
