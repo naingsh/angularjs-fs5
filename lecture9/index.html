@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lecture 9</title>
+    <script src="../angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body ng-app="DIApp">
+    <h1>Topic on Dependency Injection</h1>
+    <div ng-controller="DICtrl">
+      Type sth: <input type="text" ng-model="name" ng-blur="upper();">
+    </div>
+  </body>
+</html>
