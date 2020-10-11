@@ -34,22 +34,22 @@ function move($scope){
 
 function east(){
   var elt=document.querySelector("#car");
-  count.east++;
+  count.east+=10;
   elt.style.left=count.east+"px";
 }
 function north(){
   var elt=document.querySelector("#car");
-  count.south--;
+  count.south-=10;
   elt.style.top=count.south+"px";
 }
 function west(){
   var elt=document.querySelector("#car");
-  count.east--;
+  count.east-=10;
   elt.style.left=count.east+"px";
 }
 function south(){
   var elt=document.querySelector("#car");
-  count.south++;
+  count.south+=10;
   elt.style.top=count.south+"px";
 }
 })();

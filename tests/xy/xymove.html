@@ -4,8 +4,9 @@
   <meta charset="utf-8">
     <title>X-Y</title>
     <script src="../angular.min.js"></script>
-    <!-- <script src='xymove.js'></script> -->
-    <script src='xymove.min.js'></script>
+    <!-- <script src="xymove2.js"></script> -->
+    <script src='xymove.js'></script>
+    <!-- <script src='xymove.min.js'></script> -->
     <style>
     #map{
       border:2px solid black;
@@ -25,7 +26,7 @@
   </head>
 <body ng-app="xy">
   <div ng-controller="xyCtrl">
-<input type="text" ng-keydown="checkKey()" ng-keyup="checkKey();" ng-model="key">
+<input type="text" ng-keydown="checkKey();" ng-keyup="checkKey();" ng-model="key">
 </div>
 <div id="map">
   <div id="car"></div>
