@@ -25,7 +25,8 @@ function move($scope){
                   east();
                   break;
         case '0': var elt=document.querySelector('#car');
-                  elt.style.left=0;
+                  elt.style.left=0;count.south=0;
+                  count.east=0;
                   elt.style.top=0;
         default: console.log("stop");break;
       }
