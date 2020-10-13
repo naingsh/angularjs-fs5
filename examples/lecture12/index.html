@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Feed Kirby!</title>
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+    <!-- <script src="app.min.js"></script> -->
+    <style>
+      #box{
+        position:relative;
+        padding:10px;
+      }
+      #box > #msg {
+        font-size:20px;
+      }
+      #box > #melonPrice{
+        margin-top:10px;
+        font-size:20px;
+      }
+      #k-shout{
+        position:absolute;
+        top:150px;left:450px;
+        font-size:20px;
+      }
+    </style>
+  </head>
+  <body ng-app="feedApp">
+    <h1>Kirby Feeder 30000</h1>
+    <div id="box" ng-controller='feedCtrl'>
+      <div id="msg">{{name}} has a message for you: <i>{{msgFiltered}}</i></div>
+      <div id="melonPrice">Price of watermelon: {{priceOfMelon | currency: "$" : 2}}<br>
+      Price of 1000 melons: {{priceOfMelon*1000 | currency: "$": 2}}<br>
+      Price of a million melons: {{priceOfMelon*1000000 | currency: "$" : 2}}
+      </div>
+      <br>
+      <button ng-click="feedKirby();">Feed Kirby</button>
+      <button ng-click="wantsMore();">Want More?</button>
+      <br>
+      <br>
+      <img ng-src="images/kirby_{{state}}.jpg" width="400" height="300px">
+      <div id="k-shout">{{response}}</div>
+    </div>
+    <footer ng-controller="date">
+      <div class="footerMsg">
+        Last modified on {{date | date : 'dd MMM, y'}}
+        <br>
+        Today is {{tdy | date: 'dd MMM, y'}}
+      </div>
+    </footer>
+  </body>
+</html>
