@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Feed Kirby!</title>
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+    <!-- <script src="app.min.js"></script> -->
+    <style>
+      #box{
+        position:relative;
+      }
+      #k-shout{
+        position:absolute;
+        top:150px;left:450px;
+        font-size:20px;
+      }
+    </style>
+  </head>
+  <body ng-app="feedApp">
+    <h1>Kirby Feeder 30000</h1>
+    <div id="box" ng-controller='feedCtrl'>
+      <div id="msgBox">Message before filter: <b>{{sayMsg()}}</b>
+      <br>Message after filter: <b>{{sayFilteredMsg()}}</b>
+      <br>Message after fruit filter: <b>{{replacedFruitMsg()}}</b>
+      <br>Message after double filters: <b>{{doubleFilteredMsg()}}</b>
+      <br>Message after truth filter: <b>{{sayFilteredMsg() | truth : "watermelon" : "earthmelon"}}</b>
+      <br>BIG TRUTH: <b>{{sayFilteredMsg() | truth : "watermelon" : "earthmelon" | uppercase}}</b>
+    </div>
+      <button ng-click="feedKirby();">Feed Kirby</button>
+      <button ng-click="wantsMore();">Want More?</button>
+      <br><br>
+      <button ng-click="truthBtn()">Reveal the truth</button>
+      <span style="margin:0 10px 0 10px">{{truthMsg}}</span>
+        <button ng-click="truthCloseBtn()">Close the truth</button>
+      <br>
+      <br>
+      <img ng-src="images/kirby_{{state}}.jpg" width="400" height="300px">
+      <div id="k-shout">{{response}}</div>
+    </div>
+  </body>
+</html>
