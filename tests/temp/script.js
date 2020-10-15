@@ -20,7 +20,7 @@ function eat(thing){
   }
 }
 
-// eat("ice-cream");
+eat("ice-cream");
 
 // nuts();
 // function nuts(peanut){

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Digest Cycle</title>
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="watcherApp">
+    <h2>Watchers</h2>
+    <div ng-controller="watchCtrl">
+      <input type="text" ng-model="name"><br><br> <!--3rd watcher-->
+      <button ng-click="showNumOfWatchers()"># of Watchers</button>
+      <button ng-click="showListOfWatchers()">List of Watchers</button>
+      <br><br>
+      <button ng-click="countOnce()">Once Counter</button>
+	  <button ng-click = "countIncrement()">Increment Counter</button>
+    <div style="margin-top:20px;font-size:20px;">
+      Once Counter: {{onceCounter}}<br> <!-- 1st watcher -->
+      Increment Counter: {{incrementCounter}} <!-- 2nd watcher -->
+      <br>
+      Input box value : {{name}}  <!-- 5th watcher-->
+    </div>
+      </div>
+  </body>
+</html>

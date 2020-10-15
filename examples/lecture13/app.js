@@ -1,4 +1,4 @@
-  (function(){
+  (function(window){
 
     angular.module('feedApp',[])
     .controller('feedCtrl',stateOfKirby)
@@ -54,7 +54,10 @@ var extMsg = "Kirby likes watermelon";
     $scope.state = "hungry";
     $scope.response = "yes!!";
   };
-
+$scope.showWatchers = function(){
+  console.log("# of watchers: ", $scope.$$watchersCount);
+  console.log("List of watchers: ",$scope.$$watchers);
+};
   }
 
     function LoveFilterFactory(){
