@@ -40,6 +40,9 @@ var shoppingList2 = [
       };
       $scope.list2.push($scope.newItem);
     };
+    $scope.removeItem = function(){
+      $scope.list2.pop();
+    }
   }
 
 })();
