@@ -32,6 +32,7 @@ var shoppingList2 = [
     $scope.list2 = shoppingList2;
     $scope.logItems = function(){
       console.log($scope.list2);
+      // console.log($scope.$$watchers);
     };
     $scope.addItem = function(){
       $scope.newItem = {
