@@ -2,9 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>ng-repeat filtered</title>
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+    body{
+      font-size:1.2em;
+    }
+    body li{
+      list-style:none;
+    }
+    </style>
   </head>
-  <body>
-
+  <body ng-app="searchList">
+    <div ng-controller="searchCtrl">
+      <div>
+        <input type="text" ng-model="searchItem" ng-keyup="log($event)" placeholder="Search">
+      </div>
+    <ul>
+      <!-- <li ng-repeat="item in shoppingList | filter:searchItem">{{$index}}. {{item}}</li> -->
+      <li ng-repeat="item in shoppingList">{{$index}}. {{item}}</li>
+    </ul>
+  </div>
   </body>
 </html>
