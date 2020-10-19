@@ -2,7 +2,9 @@
 
   angular.module('ControllerApp',[])
   .controller('parentController1', ParentController1)
-  .controller('childController1', ChildController1);
+  .controller('childController1', ChildController1)
+  .controller('parentController2',ParentController2)
+  .controller('childController2',ChildController2);
 
   ParentController1.$inject = ['$scope'];
   function ParentController1($scope) {
@@ -41,3 +43,15 @@
 
   }
 })();
+
+  function ParentController2(){
+  var parent = this;
+  parent.value = 1;
+  }
+
+  ChildController2.$inject = ['$scope'];
+  function ChildController2($scope){
+    var child = this;
+    child.value = 5;
+    console.log($scope);
+  }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Services</title>
+    <link rel='shortcut icon' href=''>
+    <script src = '../angular.min.js'></script>
+    <script src = 'app.js'></script>
+    <link rel='stylesheet' href='style.css'>
+  </head>
+  <body ng-app="ShoppingListServiceApp">
+<h1>Custom Service</h1>
+    <div class="list" ng-controller='AddItemController as itemAdder'>
+        <input type='text' ng-model='itemAdder.name' placeholder='Item Name'>
+        <input type='text' ng-model='itemAdder.quantity' placeholder='Item Quantity'>
+        <button ng-click='itemAdder.addItem();'>Add Item</button>
+    </div>
+    <div class="list" id="showList" ng-controller='ShowItemController as showList'>
+        <ol>
+          <li ng-repeat="item in showList.items">{{item.quantity}} {{item.name}}
+            <button class='remove-btn' ng-click="showList.removeItem($index);">Remove</button>
+          </li>
+        </ol>
+    </div>
+  </body>
+</html>

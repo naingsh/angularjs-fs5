@@ -1,0 +1,41 @@
+body{
+  font-family:monospace;
+  background-color: #EA7AF4;  /*violet web*/
+  color: #3B0086;   /*indigo*/
+}
+input{
+  border:1px solid black;
+  border-radius:2px;
+  margin:5px 10px;
+}
+/* color palette for .list https://colorhunt.co/palette/213109 */
+.list{
+  background-color:#a8dda8;
+  float:left;
+  margin:40px 30px;
+  padding:35px 20px;
+  border:2px solid #2d6187;
+  position:relative;
+  clear:both;
+}
+#showList{
+  float:left;
+  font-size:1.5em;
+  color:black;
+  clear:both;
+}
+#showList > li{
+  list-style:none;
+}
+.remove-btn{
+  font-size:17px;
+  border:1px solid black;
+  border-radius:10px;
+  background-color:inherit;
+  color:black;
+  outline:none;
+}
+.remove-btn:hover{
+  background-color:black;
+  color:#a8dda8;
+}

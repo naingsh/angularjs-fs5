@@ -14,8 +14,13 @@
   <body ng-app = "ControllerApp">
     <div ng-controller = "parentController1">
       <div ng-controller = "childController1">
-        
       </div>
-    </di>
+    </div>
+      <div ng-controller = 'parentController2 as parent'>
+        Parent Value: {{parent.value}}
+        <div ng-controller = 'childController2 as child'>
+          Child Value : {{child.value}} // Parent Value : {{parent.value}}
+        </div>
+      </div>
   </body>
 </html>
