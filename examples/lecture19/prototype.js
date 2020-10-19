@@ -1,14 +1,14 @@
-// var parent = {
-//   value : 'parentValue',
-//   obj : {
-//     objValue: 'parentObjValue'
-//   },
-//   walk: function(){
-//     console.log("walking...")
-//   }
-// }
+var parent = {
+  value : 'parentValue',
+  obj : {
+    objValue: 'parentObjValue'
+  },
+  walk: function(){
+    console.log("walking...")
+  }
+}
 //
-// var child = Object.create(parent);  //creat object with a prototype
+var child = Object.create(parent);  //creat object with a prototype
 // console.log("CHILD - child.value: ", child.value);
 // console.log("CHILD - child.obj.objValue: ", child.obj.objValue);
 // console.log("PARENT - parent.value: ", parent.value);
@@ -16,6 +16,16 @@
 // console.log("parent: ", parent);
 // console.log("child: ", child);
 //
+// function log(arg){
+//   console.log(arg);
+// }
+// console.log(Object.is(parent.value,child.value));
+// child.value = 'childValue';
+// console.log(Object.is(parent.value,child.value));
+// log(Object.is(parent.obj.objValue,child.obj.objValue));
+// child.obj = {objValue:'childValue'};
+// console.log(Object.is(child.obj.objValue,parent.obj.objValue));
+
 // child.value = 'childValue';
 // child.obj.objValue = 'childObjValue';
 // console.log("CHILD - child.value: ", child.value);
