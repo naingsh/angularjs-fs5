@@ -46,8 +46,10 @@
     };
 
     service.moveToBought = function(index){
-      boughtItems.push(items[index]);
-      items.splice(index,1);
+      // boughtItems.push(items[index]);
+      // items.splice(index,1);
+      var temp = items.splice(index,1);
+      boughtItems.splice(1,0,temp[0]);
     };
 
   }
