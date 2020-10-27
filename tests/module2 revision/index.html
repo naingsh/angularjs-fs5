@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Module-2 Revision</title>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <!-- major mono display -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- fira mono, regualar 400 and bold 700 -->
+    <link rel='shortcut icon' href=''>
+    <link rel='stylesheet' href='style.css'>
+    <script src='../angular.min.js'></script>
+    <script src='app.js'></script>
+  </head>
+  <body ng-app='mod2app' ng-controller='Overseer'>
+    <div class='header' ng-controller='Overseer as header'>
+    <h1 class='header-title'><span>Module-2 Revision</span></h1>
+    <div>{{header.date|date: 'dd MMM, yyyy'}}
+  </div>
+</div>
+  <div class='container'>
+      <article>
+          <!-- <section ng-repeat='snippet in over.snippets'>{{snippet.html.innerHtml}} -->
+            <!-- <div class='section-title'><span>Some Section 1</span></div>
+            <button class='btn-primary' ng-click='caseA.toUppercase();'>Uppercase</button>
+            <button class='btn-primary' ng-click='caseA.toLowercase();'>Lowercase</button>
+            <button class='btn-primary' ng-click='caseA.toOriginalCase();'>Normal</button>
+            <div class='section-content'>{{caseA.paragraph1}}</div> -->
+          <!-- </section> -->
+          <section ng-controller='WordFilter as caseA'>
+            <div class='section-title'><span>Some Section 1</span></div>
+            <button class='btn-primary' ng-click='caseA.toUppercase();'>Uppercase</button>
+            <button class='btn-primary' ng-click='caseA.toLowercase();'>Lowercase</button>
+            <button class='btn-primary' ng-click='caseA.toOriginalCase();'>Normal</button>
+            <div class='section-content'>{{caseA.paragraph1}}</div>
+          </section>
+          <section id='section2' ng-controller='Overseer as shoppingListAside'>
+            <div class='section-title'><span>Some Section 2</span></div>
+              <aside id='shoppingList'>
+                <h3> Shopping List</h3>
+                <div>
+                  <input ng-keyup='shoppingListAside.getSearchItem($event);'
+                  ng-model='shoppingListAside.searchItem' id='shoppingListSearchInput'
+                  placeholder='Search' type='text' autocomplete="off">
+                  <ul>
+                    <li ng-repeat="items in shoppingListAside.shoppingList">{{$index+1}}. {{items}}</li>
+                  </ul>
+                </div>
+              </aside>
+              <div class='section-content' ng-controller='Overseer as jojo'>
+                <div id='jojoDetail'>
+                  <input placeholder='Search Jojos' type='text' ng-keyup='jojo.mainJojo($event);' ng-model='jojo.searchJojo'><br>
+                  <span>Name - <br></span>{{jojo.showJojo.name}}<br>
+                  <span>Ability - <br></span>{{jojo.showJojo.ability}}<br>
+                  <span>Part - <br></span>{{jojo.showJojo.part}}
+                </div>
+                <img width='350' height='228' id='jojosImg' ng-src='images/jojo{{jojo.showJojo.num}}.jpg'>
+              </div>
+          </section>
+      </article>
+    </div>
+  </body>
+</html>

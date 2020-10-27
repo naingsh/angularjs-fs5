@@ -11,8 +11,6 @@ var shoppingListA = ["Milk", "Donuts", "Cookies",
     $scope.log = function($event){
       if($event.keyCode!=0){
         $scope.shoppingList = $filter('filter')(shoppingListA,$scope.searchItem);
-    }else if ($event.keyCode==0){
-      $scope.shoppingList=shoppingListA;
     }
     }
       }
