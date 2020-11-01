@@ -12,12 +12,14 @@
     <link rel='stylesheet' href='style.css'>
     <script src='../angular.min.js'></script>
     <script src='app.js'></script>
+    <!-- <script src='app.min.js'></script> -->
   </head>
   <body ng-app='mod2app' ng-controller='Overseer'>
     <div class='header' ng-controller='Overseer as header'>
     <h1 class='header-title'><span>Module-2 Revision</span></h1>
     <div>{{header.date|date: 'dd MMM, yyyy'}}
   </div>
+  <button ng-click='showWatchers()'>Log Watchers</button>
 </div>
   <div class='container'>
       <article>
@@ -33,31 +35,52 @@
             <button class='btn-primary' ng-click='caseA.toUppercase();'>Uppercase</button>
             <button class='btn-primary' ng-click='caseA.toLowercase();'>Lowercase</button>
             <button class='btn-primary' ng-click='caseA.toOriginalCase();'>Normal</button>
-            <div class='section-content'>{{caseA.paragraph1}}</div>
+            <div class='section-content'>{{caseA.paragraph1}}</div>{{caseA.pState}}
+            <br> {{caseA.int}} <button ng-click='caseA.add()'>Add</button>
+            <button ng-click='caseA.showWatchers()'>Log Watchers</button>
           </section>
-          <section id='section2' ng-controller='Overseer as shoppingListAside'>
-            <div class='section-title'><span>Some Section 2</span></div>
-              <aside id='shoppingList'>
-                <h3> Shopping List</h3>
-                <div>
-                  <input ng-keyup='shoppingListAside.getSearchItem($event);'
-                  ng-model='shoppingListAside.searchItem' id='shoppingListSearchInput'
-                  placeholder='Search' type='text' autocomplete="off">
-                  <ul>
-                    <li ng-repeat="items in shoppingListAside.shoppingList">{{$index+1}}. {{items}}</li>
-                  </ul>
-                </div>
-              </aside>
-              <div class='section-content' ng-controller='Overseer as jojo'>
-                <div id='jojoDetail'>
-                  <input placeholder='Search Jojos' type='text' ng-keyup='jojo.mainJojo($event);' ng-model='jojo.searchJojo'><br>
-                  <span>Name - <br></span>{{jojo.showJojo.name}}<br>
-                  <span>Ability - <br></span>{{jojo.showJojo.ability}}<br>
-                  <span>Part - <br></span>{{jojo.showJojo.part}}
-                </div>
-                <img width='350' height='228' id='jojosImg' ng-src='images/jojo{{jojo.showJojo.num}}.jpg'>
+          <section ng-controller='AddList as addItems'>
+            <input placeholder='Item Name' type='text' ng-model='addItems.newItemName'>
+            <input placeholder='Item Quantity' type='number' ng-model='addItems.newItemQuantity'>
+            <button ng-click='addItems.addNewItem()'>Add</button>
+            <button ng-click='addItems.removeLastItem()'>Remove</button>
+            <br>
+            <ul>
+                <li ng-repeat='item in addItems.itemList'>{{item.quantity}} {{item.name}}
+                    <button ng-click='addItems.removeThisItem($index);'>Remove</button>
+                </li>
+            </ul>
+            <div ng-if='addItems.errorMsg'>Error: {{addItems.errorMsg}}</div>
+            <button ng-click='addItems.showWatchers()'>Log Watchers</button>
+          </section>
+          <section>
+          <div class='section-content' ng-controller='Overseer as jojo'>
+            <div id='jojoDetail'>
+              <input placeholder='Search Jojos' type='text' ng-keyup='jojo.mainJojo($event);' ng-model='jojo.searchJojo'><br>
+              <span>Name - <br></span>{{jojo.showJojo.name}}<br>
+              <span>Ability - <br></span>{{jojo.showJojo.ability}}<br>
+              <span>Part - <br></span>{{jojo.showJojo.part}}
+            </div>
+            <img width='350' height='228' id='jojosImg' ng-src='images/jojo{{jojo.showJojo.num}}.jpg'>
+            <button ng-click='jojo.showWatchers()'>Log Watchers</button>
+
+          </div>
+        </section>
+        <section id='section2'>
+          <div class='section-title'><span>Some Section 2</span></div>
+            <aside id='shoppingList' ng-controller='ShoppingList as shoppingListAside'>
+              <h3> Shopping List</h3>
+              <div>
+                <input ng-keyup='shoppingListAside.getSearchItem($event);'
+                ng-model='shoppingListAside.searchItem' id='shoppingListSearchInput'
+                placeholder='Search' type='text' autocomplete="off">
+                <ul>
+                  <li ng-repeat="items in shoppingListAside.shoppingList">{{$index+1}}. {{items}}</li>
+                </ul>
               </div>
-          </section>
+                <button ng-click='shoppingListAside.showWatchers()'>Log Watchers</button>
+            </aside>
+        </section>
       </article>
     </div>
   </body>

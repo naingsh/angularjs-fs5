@@ -30,6 +30,10 @@
         list.errorMsg=undefined;
       }
     };
+    // var scope = $scope;
+    // list.showWatchers=function(){
+    //   console.log(scope.$$watchers);
+    // }
   }
 
   function ShoppingListService(maxItem) {

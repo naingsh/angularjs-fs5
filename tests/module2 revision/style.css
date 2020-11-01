@@ -47,6 +47,7 @@ body{
 }
 section{
   margin:10px;
+  padding:10px;
   border-bottom:2px solid #2C666E;
 }
 .section-title{
@@ -108,6 +109,7 @@ section > .btn-primary{
     display:none;
   }
 }
+
 #jojoDetail > input{
   margin:20px;
 }
@@ -122,7 +124,8 @@ section > .btn-primary{
 #section2{
   /* background-color:aqua; */
   height:290px;
-  overflow:hidden;
+  padding-bottom:20px;
+  /* overflow:hidden; */
 }
 #jojosImg{
   border:1px solid black;

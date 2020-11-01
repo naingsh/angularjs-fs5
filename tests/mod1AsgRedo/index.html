@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>mod1 Asg</title>
+    <script src="../angular.min.js"></script>
+    <script src='app.js'></script>
+  </head>
+  <body ng-app='LunchCheckerApp' ng-controller='LunchCheckerCtrl as checker'>
+    <h1>Lunch Checker</h1>
+    <div>
+    <input ng-model='checker.itemList' type='text'
+    placeholder='list comma separated dishes you usually have for lunch'>
+    </div>
+    <div>
+    <button ng-click='checker.check()'>Check If Too Much</button>
+    </div>
+    <div style='color:{{checker.fontColor}}'>{{checker.msg}}</div>
+  </body>
+</html>

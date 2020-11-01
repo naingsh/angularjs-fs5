@@ -1,7 +1,6 @@
 (function(){
 
-  var dummyText = "Fusce non placerat metus. Integer volutpat ante in lobortis luctus. Nam consequat arcu non vestibulum pretium. Suspendisse vestibulum velit et mi finibus bibendum. Fusce varius nisi et orci placerat consectetur. Vestibulum vitae turpis at enim convallis venenatis feugiat ut est. Etiam mollis bibendum imperdiet. Quisque mattis arcu finibus risus commodo eleifend. Aliquam maximus nibh risus, eget vestibulum est congue eget. Nam hendrerit posuere felis, nec aliquam quam fringilla eu. In eu urna ipsum. Pellentesque scelerisque tempus sem eget consequat.";
-
+  var dummyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper pulvinar eros ac efficitur. Proin molestie, risus in mollis mollis, felis risus laoreet elit, nec blandit lorem ligula nec augue. Integer sit amet eleifend ligula. Aliquam a mattis urna. Integer mattis imperdiet dolor eu condimentum. Donec odio erat, blandit sed aliquet ut, laoreet id orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed eros id leo pellentesque elementum. Praesent egestas neque at odio condimentum, quis interdum mi vehicula. Praesent felis mi, iaculis ac dignissim a, semper et orci. Donec porttitor diam eu diam dictum condimentum. Suspendisse non libero eleifend, vehicula ante eu, pulvinar ex. Aliquam eleifend vulputate tempus. Pellentesque eu sagittis neque.';
   var shoppingList = ["Milk", "Donuts", "Cookies",
 "Chocolate", "Peanut Butter", "Pepto Bismol", "Pepto Bismol (Chocolate flavor)",
 "Pepto Bismol (Cookie flavor)"];
@@ -60,31 +59,28 @@
   var app=angular.module('mod2app',[]);
   app.controller('WordFilter', wordFilter)
   .controller('Overseer', overseerController)
-  .provider('RandomService', RandomServiceProvider);
+  .controller('ShoppingList', shoppingListCtrl)
+  .controller('AddList',addListCtrl)
+  .provider('RandomService', RandomServiceProvider)
+  .config(Config);
 
+  Config.$inject = ['RandomServiceProvider'];
+  function Config(RandomServiceProvider){
+    RandomServiceProvider.defaults.maxItem=2;
+  }
 
+  var injectServices = ['$scope','RandomService','$filter'];
   //controller for site's overall features
+  overseerController.$inject=injectServices;
   function overseerController($scope,RandomService,$filter) {
     var oversee = this;
     var random = RandomService;
-    oversee.date = new Date();
-    oversee.shoppingList = random.getShoppingList();
-    oversee.searchItem = '';
-    oversee.getSearchItem = function(event){
-      if(event.keyCode!=0){
-      oversee.shoppingList = $filter('filter')
-      (shoppingList,oversee.searchItem);
+    $scope.showWatchers = function(){
+      // console.log($scope);
+      console.log($scope.$$watchers);
+      console.log('Watchers Count: ',$scope.$$watchersCount);
     }
-    // function check(value) {
-    //   return value.indexOf(oversee.searchItem) != -1;
-    // }
-    // var temp = [];
-    // for(var i=0;i<shoppingList.length;i++){
-    //   temp.push(shoppingList[i].toLowerCase());
-    // }
-    // oversee.shoppingList = temp.filter(check);
-  };
-  // $scope.$watch(function(){console.log('loop fired!');});
+    oversee.date = new Date();
   oversee.searchJojo = '';
   // oversee.list = random.getJojoList();
   oversee.showJojo=random.getDefaultJojo();
@@ -100,32 +96,112 @@
   }
   }
 
-wordFilter.$inject=['RandomService','$filter'];
-  function wordFilter(RandomService,$filter){
-    var caseA = this;
+  function addListCtrl($scope,$filter,RandomService) {
+    var oversee=this;
     var random = RandomService;
+    oversee.removeThisItem = function(index){
+      oversee.itemList.splice(index,1);
+      console.log(index);
+      if(oversee.itemList.length!=random.maxItem){
+        oversee.errorMsg = undefined;
+      }
+    }
+    oversee.itemList=random.getItems();
+    oversee.newItemName="";
+    oversee.newItemQuantity='';
+    oversee.addNewItem = function(){
+      try{
+      random.addItems(oversee.newItemName,oversee.newItemQuantity);
+    }catch(error){
+      oversee.errorMsg = error.message;
+    }
+    };
+    oversee.removeLastItem = function(){
+      random.removeItems();
+      oversee.errorMsg = null;
+    };
+    var scope = $scope;
+    oversee.showWatchers = function () {
+      // console.log(scope);
+      // for(var i=0;i<scope.$$watchersCount;i++){
+      //   console.log(scope.$$watchers[i]);
+      // }
+      console.log(scope.$$watchers);
+      console.log('watchers count:', scope.$$watchersCount);
+    }
+  }
+
+// shoppingListCtrl.$inject = injectServices;
+function shoppingListCtrl($rootScope,$scope,RandomService,$filter) {
+  var list = this;
+  var random = RandomService;
+  var scope = $scope;
+  // scope.$watch(function(){console.log('watching...');})
+  list.shoppingList = random.getShoppingList();
+  list.searchItem = '';
+  list.getSearchItem = function(event){
+    if(event.keyCode!=0){
+    list.shoppingList = $filter('filter')
+    (shoppingList,list.searchItem);
+  }
+  // function check(value) {
+  //   return value.indexOf(oversee.searchItem) != -1;
+  // }
+  // var temp = [];
+  // for(var i=0;i<shoppingList.length;i++){
+  //   temp.push(shoppingList[i].toLowerCase());
+  // }
+  // oversee.shoppingList = temp.filter(check);
+};
+
+  list.showWatchers = function(){
+    console.log(scope.$$watchers);
+  }
+}
+wordFilter.$inject=['$scope','$filter'];
+  function wordFilter($scope,$filter){
+    var caseA = this;
+    var scope = $scope;
+    caseA.pState='';
+    // var random = RandomService;
     caseA.paragraph1=dummyText;
     caseA.toUppercase = function(){
       caseA.paragraph1 =  $filter('uppercase')(caseA.paragraph1);
-     }
+      caseA.pState = 0;
+    };
      caseA.toLowercase = function(){
        caseA.paragraph1 = $filter('lowercase')(caseA.paragraph1);
-     }
+       caseA.pState = 1;
+     };
      caseA.toOriginalCase = function(){
        caseA.paragraph1 = dummyText;
+       caseA.pState='';
+     };
+     caseA.int=0;
+     caseA.add = function(){
+       caseA.int++;
+     }
+
+     caseA.showWatchers = function () {
+       // console.log(scope);
+       console.log(scope.$$watchers);
+       console.log('watchers count:', scope.$$watchersCount);
      }
   }
 
   // provider
   function RandomServiceProvider(){
       var provider = this;
+      provider.defaults = {
+        maxItem:5
+      }
       provider.$get = function(){
-        return new RandomService();
+        return new RandomService(provider.defaults.maxItem);
       }
   }
 
   //random service
-  function RandomService() {
+  function RandomService(maxItem) {
     var service = this;
     service.getShoppingList = function(){return shoppingList;};
     service.getDefaultJojo = function(){return jojos[0];};
@@ -133,5 +209,24 @@ wordFilter.$inject=['RandomService','$filter'];
       var msg = $filter('uppercase')(string);
       return msg;
     };
+    var items = [];
+    service.addItems = function(itemName,itemQuantity){
+      if(maxItem===undefined || maxItem!==undefined && items.length<maxItem){
+      var newItem = {
+        name:itemName,
+        quantity:itemQuantity
+      }
+      items.push(newItem);
+    }else {
+      throw new Error('Max Item List ('+maxItem+') Reached!');
+    }
+    };
+    service.getItems = function(){
+      return items;
+    };
+    service.removeItems = function(){
+      items.pop();
+    }
   }
+
 })();
