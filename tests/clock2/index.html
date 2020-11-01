@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>clock2</title>
+    <script src='../angular.min.js'></script>
+    <script src='app.js'></script>
+    <link rel='stylesheet' href='style.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+    rel="stylesheet">
+  </head>
+  <body ng-app='clockApp' ng-controller='clockCtrl as clock'
+  style='background-color:{{clock.bgC}}'>
+    <div id='clock'>{{clock.time}}</div>
+  </body>
+</html>

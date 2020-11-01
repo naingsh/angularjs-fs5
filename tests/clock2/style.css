@@ -1,0 +1,10 @@
+*{
+  margin:0;
+  padding:0;
+}
+#clock{
+  font-family:'Space Mono',monospace;
+  text-align:center;
+  margin:50px;
+  font-size:100px;
+}
