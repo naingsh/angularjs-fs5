@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>btn</title>
+    <link rel='stylesheet' href='style.css'>
+    <!-- <link rel='shortcut icon' href=''> -->
+    <script src='../angular.min.js'></script>
+    <script src='app.js'></script>
+  </head>
+  <body ng-app='app' ng-controller='controller as btn' style='background-color:{{btn.bgC}}'>
+    <button class='btn' ng-click='btn.change();'>
+    <img ng-src='{{btn.state}}.png'>
+</button>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Generate Paragraph</title>
+  </head>
+  <body>
+      <button id='btn'>Click me</button>
+	  <div id='container'>
+
+	  </div>
+    <script>
+		var btn = document.querySelector('#btn');
+		function click(){
+      window.alert('You clicked me!');
+      var div = document.querySelector('#container');
+      div.innerHTML+='<p>This is a paragraph</p>';
+      let img = document.createElement('img');
+      img.src = 'media/hatoPanik.gif';
+      img.height=100;img.width=100;
+      div.append(img);
+		}
+		btn.addEventListener("click",click);
+      </script>
+  </body>
+</html>
