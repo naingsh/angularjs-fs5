@@ -3,8 +3,72 @@
   <head>
     <meta charset="utf-8">
     <title>promise testing</title>
+    <script src='../angular.min.js'></script>
+    <!-- <script src='js/promiseSnippet1.js'></script> -->
   </head>
   <body>
+    <script>
+let myPromise = new Promise(
+  function(myResolve,myReject){
+    let req = new XMLHttpRequest();
+    req.open('GET','snippets/promiseSnippet1.html');
+    req.onload = function(){
+      if(req.status == 200){
+        myResolve(req.response);
+      }else myReject('error 404');
+    };
+    req.send();
+  }
+);
+myPromise.then(
+  function(value){document.querySelector('.container').innerHTML=value}
+  ,function(error){document.querySelector('.container').innerHTML=error}
+);
+  (function() {
+    'use strict';
+    angular.module('clock',[]).controller('clockctrl',clockctrl);
+    function clockctrl($interval,$filter){
+      var clock=this;
+      $interval(
+        () => {
+        clock.date=new Date();
+        clock.date=$filter('date')(clock.date,'HH:mm:ss');
+      },1000);
+    }
+  }());
+  var newPromise = new Promise(
+  (myResolve,myReject) => {
+  let x = 0;
+  setTimeout(function(){
+    if(x==0) myResolve('Ok');
+    else myReject('Error');
+  },1000);
+  }
+  );
+  function displayer(value){
+  document.querySelector('#display').innerHTML=value;
+  }
+  newPromise.then(
+  (value) => displayer(value)
+  ,
+  (error) => displayer(error)
+  )
 
+  var promise2 = new Promise(
+  (resolve2,reject2) => {
+  setTimeout(function(){
+  resolve2('watabottle');
+  },3000);
+  }
+  );
+  promise2.then(
+  function(value){
+  document.querySelector('#display2').innerHTML=value;
+  }
+  )
+    </script>
+    <div ng-app='clock' ng-controller='clockctrl as clock' id='clock'>{{clock.date}}</div>
+    <div class='container'>
+    </div>
   </body>
 </html>
