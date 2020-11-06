@@ -12,7 +12,7 @@ haatoCtrl.$inject = ['getGifService']
     var feet = this;
     var promise = getGifService.getHaato();
     promise.then(function(response){
-      feet.panik = response;
+      feet.panik = response.data;
       console.log(response);
     }).catch(function(error){
       console.log(error);
