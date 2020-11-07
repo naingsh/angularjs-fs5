@@ -3,8 +3,8 @@
   angular.module('haatoApp',[])
   .controller('haatoCtrl',haatoCtrl)
   .service('getGifService',getGifService)
-  .constant('haatoUrl','https://nshtut.github.io/angular-fs5/tests/single-html/snippets/hatoPanik.html');
-
+  .constant('haatoUrl','https://nshtut.github.io/angular-fs5/tests/single-html/snippets/hatoPanik.html')
+  .constant('hololiveEveryone',)
   //https://github.com/nshtut/angular-fs5/blob/main/tests/single-html/media/hatoPanik.gif
 
 haatoCtrl.$inject = ['getGifService']
@@ -20,13 +20,10 @@ haatoCtrl.$inject = ['getGifService']
     document.querySelector('.container').innerHTML+='loading';
   }
 
-  function getGifService($http,haatoUrl){
+  function getGifService($http,haatoUrl,hololiveEveryone){
     var service = this;
     service.getHaato = function(){
-      return $http({
-        method: 'GET',
-        url: haatoUrl
-      });
+      return $http.get(haatoUrl);
     };
   }
 
