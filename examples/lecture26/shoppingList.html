@@ -1,0 +1,9 @@
+<div>
+  <h3>Shopping List</h3>
+  <input type='text' placeholder='Item Name' ng-model='list.name'>
+  <input type='text' placeholder='Item Quantity' ng-model='list.quantity'>
+  <button ng-click='list.addItem()'>Add Item</button>
+  <ol>
+    <list-item ng-repeat='item in list.items'></list-item>
+  </ol>
+  </div>

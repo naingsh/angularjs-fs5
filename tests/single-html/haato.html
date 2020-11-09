@@ -7,7 +7,29 @@
     <script <script src="js/haato.js" charset="utf-8"></script>
   </head>
   <body ng-app='haatoApp' ng-controller='haatoCtrl as feet'>
-  <div class='container'></div>
-  
+    <button ng-click='feet.change()'>Change GIF</button>
+  <div class='container'>
+    
+  </div>
+  <hr>
+  <style>
+  *{
+    margin:7px;
+  }
+  img{
+    border:1px solid black;
+  }
+  .details{
+    float:left;
+  }
+  .details > span{
+    color:blue;
+  }
+  </style>
+  <div class='details'>
+    Request Header: <span>{{feet.header}}</span><br>
+    Status: <span>{{feet.status}}</span><br>
+    Data: <span>{{feet.data}}</span>
+  </div>
   </body>
 </html>
