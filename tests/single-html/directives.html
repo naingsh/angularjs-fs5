@@ -6,11 +6,27 @@
     <script src='../angular.min.js'></script>
     <script src='js/directives.js'></script>
   </head>
-  <body ng-app='directivesApp' ng-controller='directivesCtrl'>
+  <body ng-app='directivesApp'>
+    <style>
+    input{
+      font-size:20px;
+      padding:5px;
+      margin:10px;
+    }
+    button{
+      margin:10px;
+    }
+    .answer{
+      font-size:20px;
+    }
+    </style>
     <h3>Directives</h3>
-    <div>
+    <div ng-controller='directivesCtrl'>
       <!-- <my-customer my-attr="{name: 'naomi',address: 'somewhere'}"></my-customer> -->
       <my-customer num-attr=1 info='{{naomi}}'></my-customer>
+    </div>
+    <div ng-controller='adderCtrl as add'>
+      <my-adder dir='add'></my-adder>
     </div>
   </body>
 </html>

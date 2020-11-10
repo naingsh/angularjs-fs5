@@ -2,13 +2,31 @@
   'use strict';
   angular.module('directivesApp',[])
   .controller('directivesCtrl',directivesCtrl)
-  .directive('myCustomer', MyCustomer);
+  .controller('adderCtrl',adderCtrl)
+  .directive('myCustomer', MyCustomer)
+  .directive('myAdder', MyAdder);
 
+  function MyAdder(){
+    return {
+      templateUrl: 'snippets/directive2NumbersAdding.html',
+      scope:{
+        adder: '=dir'
+      }
+    };
+  }
 
+  function adderCtrl(){
+    var add = this;
+    add.firstNum = '';
+    add.secondNum = '';
+    add.add = function(){
+      add.answer=add.firstNum+add.secondNum;
+    }
+  }
   function MyCustomer() {
     return {
       templateUrl: 'snippets/directivesSnippet.html',
-      restrict: 'E',
+      // restrict: 'E',
       scope: {
         // customerInfo: '@myAttr'
         customerInfo: '@info',
@@ -27,8 +45,7 @@
       name: "Vojta",
       address: '3456 Somewhere Else'
     };
-    // $scope.tag='';
-    // console.log(MyCustomer());
   }
+
 
 }());
