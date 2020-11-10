@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping List Again</title>
+    <script src='../angular.min.js'></script>
+    <!-- <script src='app.js'></script> -->
+    <script src='app.min.js'></script>
+  </head>
+  <body ng-app='ShoppingListApp'>
+    <style>
+    .list{
+      float:left;
+      margin:20px;
+    }
+    </style>
+    <div class='list' ng-controller='ShoppingListController1 as list1'>
+        <shopping-list my-list='list1' title='{{list1.title}}'></shopping-list>
+    </div>
+    <div class='list' ng-controller='ShoppingListController2 as list2'>
+        <shopping-list my-list='list2' title='Shopping List (Limited to 3 items)'></shopping-list>
+        <div style='color:red' ng-if='list2.eMsg'>{{list2.eMsg}}</div>
+    </div>
+  </body>
+</html>
