@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping List Again</title>
+    <script src='../angular.min.js'></script>
+    <script src='app.js'></script>
+  </head>
+  <body ng-app='ShoppingListApp'>
+    <style>
+    .list{
+      float:left;
+      margin:20px;
+    }
+    </style>
+    <div class='list' ng-controller='ShoppingListController1 as list'>
+      <h3>Shopping List</h3>
+      <input type='text' placeholder='Item Name' ng-model='list.name'>
+      <input type='text' placeholder='Item Quantity' ng-model='list.quantity'>
+      <button ng-click='list.addItem()'>Add Item</button>
+      <ol>
+        <list-item ng-repeat='item in list.items'>
+        </list-item>
+      </ol>
+    </div>
+      <div class='list' ng-controller='ShoppingListController2 as list'>
+        <h3>Shopping List(Limited)</h3>
+        <input type='text' placeholder='Item Name' ng-model='list.name'>
+        <input type='text' placeholder='Item Quantity' ng-model='list.quantity'>
+        <button ng-click='list.addItem()'>Add Item</button>
+        <ol>
+          <list-item ng-repeat='item in list.items'></list-item>
+        </ol>
+        <div style='color:red' ng-if='list.eMsg'>{{list.eMsg}}</div>
+        </div>
+  </body>
+</html>

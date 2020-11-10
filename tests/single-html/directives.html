@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Directives</title>
+    <script src='../angular.min.js'></script>
+    <script src='js/directives.js'></script>
+  </head>
+  <body ng-app='directivesApp' ng-controller='directivesCtrl'>
+    <h3>Directives</h3>
+    <div>
+      <!-- <my-customer my-attr="{name: 'naomi',address: 'somewhere'}"></my-customer> -->
+      <my-customer num-attr=1 info='{{naomi}}'></my-customer>
+    </div>
+  </body>
+</html>
