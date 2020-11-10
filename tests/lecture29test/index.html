@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>controllers in directives</title>
+    <script src="../angular.min.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-app='app'>
+    <div ng-controller='controller as person'>
+      {{person.borj.name}}<br>
+      <!-- <my-dir name="person.borj.name" age='person.borj.age'>
+      </my-dir> -->
+      <my-dir person='person'></my-dir>
+      </div>
+  </body>
+</html>

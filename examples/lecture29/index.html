@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>controller inside directive</title>
+    <script src="../angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-app='shoppingListApp'>
+    <style>
+    .list{
+      float:left;
+      margin:20px;
+    }
+    </style>
+    <div class='list' ng-controller='ShoppingListController1 as list1'>
+      <input type='text' ng-model='list1.name' placeholder='item name'>
+      <input type='text' ng-model='list1.quantity' placeholder='item quantity'>
+      <button ng-click='list1.addItem()'>Add item</button>
+      <shopping-list my-list='list1'>
+      </shopping-list>
+    </div>
+    <div class='list' ng-controller='ShoppingListController1 as list2'>
+      <input type='text' ng-model='list2.name' placeholder='item name'>
+      <input type='text' ng-model='list2.quantity' placeholder='item quantity'>
+      <button ng-click='list2.addItem()'>Add item</button>
+      <shopping-list-dir items='list2.items' title='{{list2.title}}' error='list2.error'></shopping-list-dir>
+    </div>
+  </body>
+</html>
