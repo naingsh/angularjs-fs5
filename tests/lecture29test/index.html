@@ -9,9 +9,13 @@
   <body ng-app='app'>
     <div ng-controller='controller as person'>
       {{person.borj.name}}<br>
-      <!-- <my-dir name="person.borj.name" age='person.borj.age'>
-      </my-dir> -->
       <my-dir person='person'></my-dir>
+      </div>
+      <div ng-controller='stopWatch as watch'>
+        <my-watch start='watch.start' attr='watch.stop'
+        resetter='watch.reset' seconds='watch.seconds'></my-watch>
+        <div class='gif'> </div>
+        <my-hato></my-hato>
       </div>
   </body>
 </html>
