@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>timer</title>
+    <script src='../angular.min.js'></script>
+  </head>
+  <body>
+    <audio id='alert' src='media/watamekojo.mp3' preload='auto'></audio>
+      <script>
+      (function() {
+        var audio=document.querySelector('#alert');
+        'use strict';
+        angular.module('timerapp',[])
+        .controller('timerCtrl',timerCtrl);
+
+        function timerCtrl($interval,$window){
+          var timer = this;
+          timer.limit='';
+          timer.time=0;
+          var counter;
+          timer.start = function(){
+          counter = $interval(function(){
+            if(timer.time==timer.limit){
+              console.log(timer.time);
+              timer.cancel();
+            audio.play();
+            // $window.alert('times up');
+            }else  timer.time++;
+          },1000);
+        }
+        timer.cancel = function(){
+          $interval.cancel(counter);
+          audio.pause();
+      }
+          }
+        }());
+      </script>
+      <div ng-app='timerapp' ng-controller='timerCtrl as timer'>
+        <input placeholder='Time Limit' ng-model='timer.limit'>
+        <br><br>
+      <button ng-click='timer.start()'>Start</button>
+      timer: {{timer.time}} <button ng-click='timer.cancel()'>Cancel</button>
+    </div>
+  </body>
+</html>

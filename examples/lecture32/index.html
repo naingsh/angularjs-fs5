@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='style.css'>
+    <script src='jquery-3.1.0.min.js'></script>
+    <script src='../angular.min.js'></script>
+    <script src='app.js'></script>
+</head>
+<body ng-app='ShoppingListApp'>
+    <div ng-controller='ShoppingListController as list'>
+        <div>
+        <input ng-model='list.itemName' type='text' placeholder='Item Name'>
+        <input ng-model='list.itemQuantity' type='text' placeholder="Item Quantity">
+        <button ng-click='list.addItem()'>Add item</button>
+        </div>
+        <shopping-list items='list.items' my-title='{{list.title}}'
+         on-remove='list.removeItem(index)'>
+        <span>Warning: {{list.warning}}</span>
+        </shopping-list>
+         <shopping-list items='list.items' my-title='{{list.title}}'
+         on-remove='list.removeItem(index)'>
+        <div>
+        <div>OH, THE HORROR!</div>
+        <div>{{list.warning}}</div>
+        </div>
+        </shopping-list>
+    </div>
+</body>
+</html>
