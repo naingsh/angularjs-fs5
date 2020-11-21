@@ -1,0 +1,14 @@
+<ul class='list-container'>
+        <li class='list-card' ng-repeat='item in foundItemsArray'>
+<div class='column'>
+    <div class='id-circle'>{{item.short_name}}</div>
+    <div class='dot'></div>
+    <div class='name-rect'>{{item.name}}</div>
+    <div class='description-rect'>{{item.description}}</div>
+    <button type='button' class='btn btn-primary' ng-click='onRemove({index: $index})'>
+      Don't Want This One!
+    </button>
+  </div>
+  </li>
+  </ul>
+  <div ng-if='errorMsg'>{{errorMsg}}</div>

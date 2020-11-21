@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" 
+    rel="stylesheet"> 
+    <link rel='stylesheet' href='styles/bootstrap.min.css'>
+    <link rel='stylesheet' href='styles/style.css'>
+  </head>
+  <body ng-app='NarrowItDownApp'>
+    <div class='container' ng-controller='NarrowItDownController as list'>
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+    <input id='search-box' type='text' placeholder="Search Menu" class='form-control'
+    ng-model='list.searchTerm'>
+    <div class='form-group narrow-button'>
+      <button type='button' class='btn btn-primary' ng-click='list.getList(list.searchTerm)'>
+        Narrow It Down For Me!
+      </button>
+    </div>
+      <div class='row'>
+        <!-- <div class='column'>
+            <div class='id-circle'></div>
+            <div class='dot'></div>
+            <div class='name-rect'>dish name chicken something</div>
+            <div class='description-rect'></div>
+            <button type='button' class='btn btn-primary'>
+              Don't Want This One!
+            </button>
+          </div> -->
+          <found-items found-items-array='list.found' 
+    on-remove='list.remove(index)'
+    error-msg='list.errorMsg'
+    ></found-items>
+      </div>
+  </div>
+    <script src='../angular.min.js'></script>
+    <script src='app.js'></script>
+  </body>
+</html>
