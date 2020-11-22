@@ -1,0 +1,12 @@
+<div class='template'>
+    <ul class='foundList'>
+        <li ng-repeat='item in foundItemsArray'>
+            <span class='shortName'>{{item.short_name}} - {{item.name}}</span> 
+            <div class='description'>
+            {{item.description}} 
+            </div> 
+            <button class='btn btn-primary' ng-click='onRemove({index: $index})'>Don't want this one!</button>
+        </li>
+    </ul>
+    <div ng-if='errorMsg'>{{errorMsg}}</div>
+</div>

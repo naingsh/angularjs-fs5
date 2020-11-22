@@ -1,12 +1,12 @@
-<div class='template'>
-    <ul class='foundList'>
-        <li ng-repeat='item in foundItemsArray'>
-            <span class='shortName'>{{item.short_name}} - {{item.name}}</span> 
-            <div class='description'>
-            {{item.description}} 
-            </div> 
-            <button class='btn btn-primary' ng-click='onRemove({index: $index})'>Don't want this one!</button>
-        </li>
-    </ul>
-    <div ng-if='errorMsg'>{{errorMsg}}</div>
-</div>
+<ul class='list-container'>
+        <li class='list-card' ng-repeat='items in foundItemArray'>
+<div class='column'>
+    <div class='id-circle'>{{items.short_name}}</div>
+    <div class='name-rect'>{{items.name}}</div>
+    <div class='description-rect'>{{items.description}}</div>
+    <button type='button' class='btn btn-primary' ng-click='onRemove({index: $index})'>
+      Don't Want This One!
+    </button>
+  </div>
+  </li>
+  </ul>
