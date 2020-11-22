@@ -11,28 +11,40 @@
             templateUrl: 'foundMenuItems.html',
             scope: {
                 foundItemsArray: '<',
-                onRemove: '&',
-                errorMsg: '<'
-            }
+                onRemove: '&'
+            },
+            transclude: true
         }
     }
 
-    NarrowItDownController.$inject = ['MenuSearchService'];
-    function NarrowItDownController(MenuSearchService){
+    NarrowItDownController.$inject = ['$scope','MenuSearchService'];
+    function NarrowItDownController($scope,MenuSearchService){
         var list = this;
         var service = MenuSearchService;
-        list.serachTerm='';
         list.getList = function(searchTerm){
             var promise =service.getMatchedMenuItems(searchTerm);
            promise.then(
                 function(response){
-                    console.log(response);
                     list.found = [];
                     list.errorMsg='';
-                    console.log(list.found);
                     var array = response.data.menu_items;
-                    console.log(searchTerm);
-                    if(searchTerm!=undefined && searchTerm!=''){
+                    var element = document.querySelector('#template');
+        $scope.$watch(list.found,function(newValue,oldValue){
+                console.log('newvaleu',newValue);
+                console.log('oldValue',oldValue);
+            if(newValue!=0){
+                removeErrorMsg();
+            }else displayNthFound();
+        });
+        function displayNthFound(){
+            var warning = $(element).find('div.error');
+            warning.slideDown(900);
+        }
+        function removeErrorMsg(){
+            var warning = $(element).find('div.error');
+            warning.slideUp(900);
+        }
+                    if(searchTerm){
                     for(var i=0;i<array.length;i++){
                         if(array[i].description.toLowerCase().indexOf(searchTerm.toLowerCase())!=-1){
                             list.found.push(array[i]);
@@ -40,20 +52,15 @@
                     }
                     if(list.found.length!=0){
                    return list.found;
-                    }else {
-                        list.errorMsg='Nothing Found';
-                    return list.errorMsg;
                     }
-                }else {
-                    list.errorMsg='Nothing Found';
-                    return list.errorMsg;
-             }
+                }
                 }
             );
         };
         list.remove = function(index){
             list.found.splice(index,1);
         }
+        list.errorMsg = 'Nothing Found!';
     }
 
     MenuSearchService.$inject = ['$http','MenuItemsPath'];
