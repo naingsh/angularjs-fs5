@@ -1,5 +1,5 @@
 <h3>Title: {{list.myTitle}}</h3>
-  <span>{{ list.lastRemoved }}</span>
+  <!-- <span>{{ list.lastRemoved }}</span> -->
 <ol>
   <li ng-repeat='item in list.items'>{{item.quantity}}  {{item.name}}
     <button ng-click='list.badRemove($index)'>Bad Remove</button>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset = 'utf-8'>
+        <title>Inheritence</title>
+    </head>
+<body>
+    <script>
+        var hero = {
+            name: 'Jack',
+            gen: 1
+        };
+        console.log('First Gen: ',hero);
+        var nextGenHero = Object.create(hero);
+        console.log('Next Gen: ',nextGenHero);
+        nextGenHero.name = 'Bob';
+        nextGenHero.gen = 2;
+    </script>
+</body>
+</html>

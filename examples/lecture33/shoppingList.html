@@ -1,0 +1,10 @@
+<h3>Title: {{$ctrl.myTitle}}</h3>
+  <span>{{ $ctrl.lastRemoved }}</span>
+<ol>
+  <li ng-repeat='item in $ctrl.items'>
+    {{item.quantity}}  {{item.name}}
+    <button ng-click='$ctrl.badRemove($index)'>Bad Remove</button>
+    <button ng-click='$ctrl.remove($index)'>Remove</button>
+    </li>
+    </ol>
+<div class='error'>WARNING! COOKIES DETECTED!</div>
