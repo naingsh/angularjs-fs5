@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>
+            url with parameters
+        </title>
+        <link rel='stylesheet' href='css/styles.css'>
+    </head>
+    <body ng-app='ShoppingListApp'>
+        <h1>Welcome to no cookie shoppinglist</h1>
+        <ui-view></ui-view>
+        <loading>   </loading>
+        <!-- Libraries -->
+        <script src='../angular.min.js'></script>
+        <script src='lib/angular-ui-router.min.js'></script>
+
+        <!-- Modules -->
+        <script src='src/shoppinglist/shoppinglist.module.js'></script>
+        <script src="src/spinner/spinner.module.js"></script>
+        <!-- Routes -->
+        <script src='src/routes.js'></script>
+
+        <!-- Artifacts -->
+        <script src='src/shoppinglist/main-shoppinglist.controller.js'></script>
+        <script src='src/shoppinglist/shoppinglist.component.js'></script>
+        <script src='src/shoppinglist/shoppinglist.service.js'></script>
+        <script src='src/shoppinglist/item-detail.controller.js'></script>
+        <script src='src/spinner/spinner.component.js'></script>
+    </body>
+</html>
