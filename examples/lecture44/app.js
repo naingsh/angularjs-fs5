@@ -10,14 +10,16 @@
         ShoppingListServiceProvider.defaults.maxItems = 2;
     }
 
-    function ShoppingListController(ShoppingListService){
+    function ShoppingListController(ShoppingListService,dumFunc){
         var list = this;
 
         list.items = ShoppingListService.getItems();
       
         list.itemName = "";
         list.itemQuantity = "";
-      
+      list.dummyFunction = function(){
+        return dumFunc();
+      }
         list.addItem = function () {
           try {
             ShoppingListService.addItem(list.itemName, list.itemQuantity);

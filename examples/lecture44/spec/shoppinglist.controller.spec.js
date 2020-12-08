@@ -8,12 +8,15 @@ describe('ShoppingListController',function(){
         var shoppingListServiceErrorMock = {};
         shoppingListServiceErrorMock.addItem = function(name,qty){
             throw new Error('Test Message.');
-        }
+        };
         shoppingListServiceErrorMock.getItems = function(){
             return null;
+        };
+        var dummyFunction = function(){
+            return 'this is dummy function';
         }
         shoppingListController = $ctrl('ShoppingListController',
-        {ShoppingListService:shoppingListServiceErrorMock});
+        {ShoppingListService:shoppingListServiceErrorMock,dumFunc:dummyFunction});
 
     }));
 
@@ -21,4 +24,8 @@ describe('ShoppingListController',function(){
         shoppingListController.addItem();
         expect(shoppingListController.errorMessage).toBe('Test Message.');
     });
+    it('should return dummy function result',function(){
+        var result = shoppingListController.dummyFunction();
+        expect(result).toEqual('this is dummy function');
+    })
 });
