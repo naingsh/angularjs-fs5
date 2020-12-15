@@ -79,7 +79,7 @@ a{
 #menu-tile,#specials-tile,#map-tile{
 	height:250px;
 	width:100%;
-	margin-bottom:15px;
+	margin-bottom:30px;
 	border:2px solid black;
 	position:relative;
 	overflow:hidden;
@@ -107,14 +107,15 @@ a{
 	text-transform:uppercase;
 	font-size:1.5em;
 }
-/*.row section{
+/* .row section{
 	width:100%;
 	text-align:center;
 	border:2px solid white;
 	color:white;
 	background-color:black;
-}*/
+} */
 .card-footer{
+	clear:both;
 	background-color:#A07178; /*copper rose*/
 	color:white;
 	margin-top:30px;
