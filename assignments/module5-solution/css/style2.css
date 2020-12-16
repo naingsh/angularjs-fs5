@@ -243,14 +243,22 @@ h3.menu-item-title{
     	flex: 0 0 50%;
 	}
 }
-@media (max-width:960px) and (min-width:768px){
+@media (max-width:975px) and (min-width:768px){
 	#brand-name{
 		font-size:2.5vw;
 	}
-	.menu-item{
+	.menu-item,#phone{
 		font-size:2vw;
 	}
 }
+/* @media (max-width:789px) and (min-width:768px){
+	#brand-name{
+		font-size:2vw;
+	}
+	.menu-item{
+		font-size:1.5vw;
+	}
+} */
 @media (max-width:767px){
 	#navbarNav a:hover{
 		background-color:white;
