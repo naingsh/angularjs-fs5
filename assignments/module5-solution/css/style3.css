@@ -1,0 +1,44 @@
+/* body {
+    font-size: 1.2em;
+  } */
+  /* input{
+    display:block;
+  } */
+ 
+  .error{
+    font-size:20px;
+    color:red;
+  }
+  .signup-page{
+    margin:50px 50px;
+  }
+  #navbarNav{
+    font-size:1.2em;
+  }
+  .btn{
+    font-size:24px;
+  }
+  input {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  button {
+    font-size: 24px;
+  }
+  
+  .ng-touched.ng-valid {
+    border: 2px green solid;
+  }
+  
+  .ng-touched.ng-invalid {
+    border: 2px red solid;
+  }
+  
+  #info {
+    margin-top: 20px;
+  }
+  .note {
+    padding:15px;
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+  }
