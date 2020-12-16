@@ -11,7 +11,7 @@ body{
 #brand{
 	position:relative;
 }
-#certi span{
+/* #certi span{
 	position:absolute;
 	left:69%;
 	top:68%;
@@ -20,6 +20,9 @@ body{
 	position:absolute;
 	left:45%;
 	top:62%;
+} */
+#brand > img{
+	margin:10px;
 }
 a{
 	text-decoration:none!important;
@@ -91,11 +94,11 @@ a{
 	box-shadow:0px 1px 5px 5px #E6CCBE; /*champagne pink #E6CCBE*/
 }
 #menu-tile{
-	background:url('../../images/mlxg.jpg') no-repeat;
+	background:url('../../images/menu.jpg') no-repeat;
 	background-position:center;
 }
 #specials-tile{
-	background:url('../../images/dumplings.jpg') no-repeat;
+	background:url('../../images/special.jpg') no-repeat;
 	background-position:center;
 }
 #menu-tile span,#specials-tile span,#map-tile span{
@@ -240,6 +243,14 @@ h3.menu-item-title{
     	flex: 0 0 50%;
 	}
 }
+@media (max-width:960px) and (min-width:768px){
+	#brand-name{
+		font-size:2.5vw;
+	}
+	.menu-item{
+		font-size:2vw;
+	}
+}
 @media (max-width:767px){
 	#navbarNav a:hover{
 		background-color:white;
@@ -250,18 +261,18 @@ h3.menu-item-title{
 	#certi{
 		font-size:2vw;
 	}
-	#certi img{
+	/* #certi img{
 		width:3vw;
 		height:3vw;
 		position:absolute;
 		top:62%;
 		left:0;
-	}
-	#certi span{
+	} */
+	/* #certi span{
 		position:absolute;
 		left:24%;
 		top:63.5%;
-	}
+	} */
 	.icon{
 		display:inline;
 	}
@@ -307,10 +318,11 @@ h3.menu-item-title{
 		text-align:center;
 	}
 }
-@media (min-width:768px) and (max-width:991px)
-{
-
-}
-@media (max-width:992px){
-	
+@media (max-width:372px){
+	#brand-name{
+		font-size:4.5vw;
+	}
+	#certi{
+		font-size:2vw;
+	}
 }
