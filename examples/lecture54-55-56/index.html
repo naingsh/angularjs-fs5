@@ -88,6 +88,7 @@
       <div id="deliver" class="d-block d-md-none">*We Deliver</div>
 
       <ui-view></ui-view>
+    <loading></loading>
 
       <footer class="card-footer">
         <div class="container container-fluid">
@@ -124,11 +125,18 @@
     <script src='lib/angular.min.js'></script>
     <script src='lib/angular-ui-router.min.js'></script>
 
-    <!-- module -->
-    <script src='src/restaurant.module.js'></script>
+      <!-- restaurant -->
+      <script src='src/restaurant.module.js'></script>
+      <!-- public -->
       <script src='src/public/public.module.js'></script>
-
-    <!-- artifacts -->
-    <script src='src/public/public.routes.js'></script>
+      <script src='src/public/public.routes.js'></script>
+      <script src='src/public/menu/menu.controller.js'></script>
+      <script src='src/public/menu/menu-category.component.js'></script>
+      <!-- common -->
+      <script src='src/common/common.module.js'></script>
+      <script src='src/common/menu.service.js'></script>
+      <script src='src/common/loading/loading.component.js'></script>
+      <script src='src/common/loading/loading.interceptor.js'></script>
+  
   </body>
 </html>

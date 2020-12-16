@@ -1,0 +1,24 @@
+<div class="col-lg-6 menu-item-tile float-left">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="menu-item-photo">
+          <div>{{$ctrl.item.short_name}}</div>
+            <img ng-src="../images/menu/{{$ctrl.category.short_name}}
+/{{$ctrl.item.short_name}}.jpg" alt="{{$ctrl.item.name}}" height="150" width="250" class="img-fluid">
+         </div>
+            <div class="menu-item-price">
+              {{$ctrl.item.price_small}}
+              <span>{{$ctrl.item.small_portion_name}}</span>
+              {{$ctrl.item.price_large}}
+              <span>{{$ctrl.item.large_portion_name}}</span>
+            </div>
+      </div>
+  
+            <div class="menu-item-description col-md-7">
+              <h3 class="menu-item-title">{{$ctrl.item.name}}</h3>
+                <p class="menu-item-detail">{{$ctrl.item.description}}</p>
+            </div>
+  
+    </div>
+    <hr class="d-sm-block d-md-none">
+  </div>
