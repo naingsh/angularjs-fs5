@@ -7,6 +7,6 @@
     function SingleCategoryController(items){
       var $ctrl = this;
       $ctrl.items = items;
-    //   console.log($ctrl.items);
+      // console.log($ctrl.items);
     }
 })();
