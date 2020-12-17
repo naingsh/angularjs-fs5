@@ -1,0 +1,54 @@
+<div class='signup-page' ng-controller='SignUpController as reg'>
+   <form name='signup' novalidate>
+
+       <!-- first name -->
+       <input type='text' name='fname' placeholder='First Name'
+       ng-model='reg.user.fname'
+       required>
+       <span class='error' ng-if='signup.fname.$touched && signup.fname.$invalid'>
+           First name required
+       </span>
+       <br>
+
+       <!-- last name -->
+       <input type='text' name='lname' placeholder='Last Name'
+       required
+       ng-model='reg.user.lname'>
+       <span class='error' ng-if='signup.lname.$touched && signup.lname.$invalid'>
+        Last name required
+    </span>
+       <br>
+
+       <!-- email -->
+       <input type='email' name='email' placeholder="Email"
+       required
+       ng-model='reg.user.email'>
+       <span class='error' ng-if='signup.email.$invalid && signup.email.$touched'>
+        Must be a valid domain format 'handle@format'
+       </span>
+       <br>
+
+       <!-- phone -->
+       <input type='text' name='phone' placeholder='Phone Number'
+       required
+       ng-model='reg.user.phone'
+       pattern='(\d{3})-(\d{3})-(\d{4})'>
+       <span class='error' ng-if='signup.phone.$invalid && signup.phone.$touched'>
+        Phone number must be in the format ###-###-####</span>
+        <br>
+
+        <!-- menu name -->
+       <input type='text' required ng-keyup='reg.validate()'
+        ng-model='reg.user.shortName' placeholder='Favorite Dish Number'>
+        <span class='error' 
+        ng-if="!reg.valid && reg.user.shortName!==undefined ">
+        No such menu number exists</span>
+       <br>
+       <button ng-disabled='signup.$invalid'
+       class='btn btn-primary' ng-click='reg.submit()'>Submit</button>
+       <!-- {{reg.user}} -->
+   </form>
+        <div ng-if='reg.savedMsg'>
+            Your information has been saved
+        </div>
+</div>
