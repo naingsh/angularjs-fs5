@@ -5,8 +5,9 @@
   .service('getGifService',getGifService)
   // .constant('haatoUrl','https://nshtut.github.io/angular-fs5/tests/single-html/snippets/hatoPanik.html')
   // .constant('hololiveEveryone','https://nshtut.github.io/angular-fs5/tests/single-html/snippets/everyone.html')
-  .constant('urls',['https://nshtut.github.io/angular-fs5/tests/single-html/snippets/everyone.html'
-  ,'https://nshtut.github.io/angular-fs5/tests/single-html/snippets/hatoPanik.html']);
+//   .constant('urls',['https://nshtut.github.io/angular-fs5/tests/single-html/snippets/everyone.html'
+//   ,'https://nshtut.github.io/angular-fs5/tests/single-html/snippets/hatoPanik.html']);
+     .constant('urls',['./snippets/everyone.html','./snippets/hatoPanik.html']);
 haatoCtrl.$inject = ['$timeout','getGifService','urls']
   function haatoCtrl($timeout,getGifService,urls){
     var feet = this;
